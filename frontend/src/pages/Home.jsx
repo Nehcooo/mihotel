@@ -144,19 +144,19 @@ function Home() {
 
 							<p className="mt-4 text-gray-700 truncate max-w-[100%]">{post.description}</p>
 
-							<div className="flex items-center gap-2 mt-2">
+							<div className="flex items-center gap-2 mt-2 w-full">
 								<IoLocationOutline className="text-red-500" />
 
 								<p className="text-gray-700 truncate max-w-[100%]">{post.pickup_location}</p>
 							</div>
 
-							<div className="flex items-center gap-2 mt-0">
+							<div className="flex items-center gap-2 mt-0 w-full">
 								<MdOutlineDateRange className="text-black" />
 
 								<p className="text-gray-700 truncate max-w-[100%]">{post.availability.date} | {post.availability.time}</p>
 							</div>
 
-							<div className="flex items-center gap-2 mt-0">
+							<div className="flex items-center gap-2 mt-0 w-full">
 								<GiLifeBar className="text-blue-500" />
 
 								<p className="text-gray-700">{getConditionLabel(post.condition)}</p>
