@@ -7,11 +7,11 @@ Une application React qui permet de consulter, rechercher, filtrer, ajouter, mod
 ## Fonctionnalités
 
 - Affichage de la liste des annonces
-- Creation d'une annonce via formulaire
+- Création d'une annonce via formulaire
 - Modification et suppression d'une annonce
-- Affichage des details d'une annonce
-- Systeme de tri et de filtre
-- Pagination des resultats
+- Affichage des détails d'une annonce
+- Système de tri et de filtre
+- Pagination des résultats
 - Champ de recherche
 
 ---
@@ -54,7 +54,7 @@ npm install
 npm run dev
 ```
 
-Le backend tourne sur `http://localhost:5000`
+Le backend doit tourner sur `http://localhost:4242`
 
 ## Installation et lancement du frontend :
 
