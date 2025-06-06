@@ -20,9 +20,9 @@ function Home() {
 	const [condition, setCondition] = useState("all");
 
 	useEffect(() => {
-		const fetchPosts = async () => {
+		const fetchPosts = async () => {			
 			try {
-				const response = await fetch(`http://localhost:4242/api/post?page=${currentPage}&search=${currentSearch}&sort=${sortType}&condition=${condition}`, {
+				const response = await fetch(`${import.meta.env.VITE_SERVER_BACKEND_URL}/api/post?page=${currentPage}&search=${currentSearch}&sort=${sortType}&condition=${condition}`, {
 					method: "GET",
 				});
 				const data = await response.json();
@@ -41,7 +41,7 @@ function Home() {
 
 	const handleDeletePost = async (postId) => {
 		try {
-			const response = await fetch(`http://localhost:4242/api/post/${postId}`, {
+			const response = await fetch(`${import.meta.env.VITE_SERVER_BACKEND_URL}/api/post/${postId}`, {
 				method: "DELETE",
 			});
 			const data = await response.json();

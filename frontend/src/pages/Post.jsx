@@ -16,7 +16,7 @@ function Post() {
     useEffect(() => {
         if (id) {
             const fetchPost = async () => {
-                const response = await fetch(`http://localhost:4242/api/post/${id}`);
+                const response = await fetch(`${import.meta.env.VITE_SERVER_BACKEND_URL}/api/post/${id}`);
                 const data = await response.json();
 
                 if (data.success) {
@@ -86,7 +86,7 @@ function Post() {
             return;
         }
 
-        const response = await fetch(id ? `http://localhost:4242/api/post/${id}` : `http://localhost:4242/api/post`, {
+        const response = await fetch(id ? `${import.meta.env.VITE_SERVER_BACKEND_URL}/api/post/${id}` : `${import.meta.env.VITE_SERVER_BACKEND_URL}/api/post`, {
             method: id ? "PUT" : "POST",
             headers: {
                 "Content-Type": "application/json"

@@ -62,11 +62,15 @@ Le backend doit tourner sur `http://localhost:4242`
 ```bash
 cd frontend
 ```
-2. **Installer les dépendances**
+2. **Configurer un fichier .env (à la racine de ./backend)**
+```env
+VITE_SERVER_BACKEND_URL=http://localhost:4242
+```
+3. **Installer les dépendances**
 ```bash
 npm install
 ```
-3. **Lancer le serveur en mode développement**
+4. **Lancer le serveur en mode développement**
 ```bash
 npm run dev
 ```
