@@ -20,7 +20,7 @@ function Home() {
 	const [condition, setCondition] = useState("all");
 
 	useEffect(() => {
-		const fetchPosts = async () => {			
+		const fetchPosts = async () => {
 			try {
 				const response = await fetch(`${import.meta.env.VITE_SERVER_BACKEND_URL}/api/post?page=${currentPage}&search=${currentSearch}&sort=${sortType}&condition=${condition}`, {
 					method: "GET",
