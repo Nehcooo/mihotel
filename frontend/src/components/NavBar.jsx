@@ -8,7 +8,7 @@ function NavBar() {
     ];
 
 	return (
-        <div className="sticky top-0 h-[90px] w-full bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+        <div className="z-10 sticky top-0 h-[90px] w-full bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
             <div className="flex items-center justify-between h-full w-[70%] mx-auto">
                 <Link to="/" className="flex items-center gap-2 text-2xl font-semibold cursor-pointer">
                     <BiSolidDonateHeart className="text-3xl text-red-500" />
