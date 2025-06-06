@@ -26,16 +26,22 @@ router.post("/", async (req, res) => {
 router.get("/", async (req, res) => {
     const page = parseInt(req.query.page) || 1;
     const search = req.query.search || "";
+    const sort = req.query.sort || "recents";
+    const condition = req.query.condition || "";
     const limit = 6;
 
     const filter = {
         $or: [
             { item_name: { $regex: search, $options: "i" } },
-            { description: { $regex: search, $options: "i" } }
-        ]
+            { description: { $regex: search, $options: "i" } },
+        ],
     };
 
-    const posts = await Post.find(filter).skip((page - 1) * limit).limit(limit).sort({ createdAt: -1 })
+    if (condition && condition !== "all") {
+        filter.condition = condition;
+    }
+
+    const posts = await Post.find(filter).skip((page - 1) * limit).limit(limit).sort({ createdAt: (sort == "old" ? 1 : -1) })
     const totalPosts = await Post.countDocuments(filter);    
 
     return res.json({ posts: posts, totalPages: Math.ceil(totalPosts / limit) });

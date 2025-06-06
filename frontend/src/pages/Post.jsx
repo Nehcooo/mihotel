@@ -16,7 +16,7 @@ function Post() {
     useEffect(() => {
         if (id) {
             const fetchPost = async () => {
-                const response = await fetch(`http://localhost:5000/api/post/${id}`);
+                const response = await fetch(`http://localhost:4242/api/post/${id}`);
                 const data = await response.json();
 
                 if (data.success) {
@@ -86,7 +86,7 @@ function Post() {
             return;
         }
 
-        const response = await fetch(id ? `http://localhost:5000/api/post/${id}` : `http://localhost:5000/api/post`, {
+        const response = await fetch(id ? `http://localhost:4242/api/post/${id}` : `http://localhost:4242/api/post`, {
             method: id ? "PUT" : "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -106,22 +106,20 @@ function Post() {
             setError("Une erreur s'est produite.");
         }
 
-        if (id) {
-            navigate("/");
-        }
-
         setName("");
         setLocation("");
         setCondition("");
         setAvailability({ date: "", time: "" });
         setDescription("");
+
+        navigate("/");
     }
 
     return (
         <div className="w-[70%] mx-auto flex flex-col items-center justify-center mt-10 py-5">
             <h1 className="text-3xl font-bold text-center text-gray-950">{id ? "Modification d'une annonce" : "Déposer une annonce"}</h1>
 
-            <div className="h-auto w-[80vh] ">
+            <div className="h-auto w-[80%] max-lg:w-[100%]">
                 <button onClick={() => navigate(-1)} className="cursor-pointer hover:opacity-80 transition-all ease bg-red-500 text-white flex items-center gap-1 mt-10 mb-2 text-lg font-semibold px-5 py-1 rounded-lg w-auto">
                     <IoIosArrowBack className="text-xl" />
                     <p className="font-bold">Retour</p>
@@ -159,7 +157,7 @@ function Post() {
                             value={condition}
                             onChange={(e) => setCondition(e.target.value)}
                         >
-                            <option value="">Sélectionnez un état</option>
+                            <option value="all">Sélectionnez un état</option>
                             <option value="new">Neuf</option>
                             <option value="good">Bon état</option>
                             <option value="used">Usagé</option>

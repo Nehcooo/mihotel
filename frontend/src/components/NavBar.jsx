@@ -19,7 +19,7 @@ function NavBar() {
                     {navigations.map((nav, index) => (
                         <Link key={index} to={nav.page} className="bg-red-500 text-white flex items-center gap-2 text-lg font-semibold px-5 py-1 rounded-lg cursor-pointer hover:opacity-80 transition-all ease">
                             <HiPlus className="text-xl" />
-                            <p className="font-bold">{nav.name}</p>
+                            <p className="max-md:hidden  font-bold">{nav.name}</p>
                         </Link>
                     ))}
                 </div>
